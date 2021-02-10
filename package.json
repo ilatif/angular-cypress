@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cypress-e2e": "./node_modules/cypress/bin/cypress run",
-    "webdriver-manager:update": "./node_modules/protractor/bin/webdriver-manager update --ie"
+    "cypress-e2e": "node ./node_modules/cypress/bin/cypress run",
+    "webdriver-manager:update": "node ./node_modules/protractor/bin/webdriver-manager update --ie"
   },
   "private": true,
   "dependencies": {
