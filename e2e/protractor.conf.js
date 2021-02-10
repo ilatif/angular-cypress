@@ -13,10 +13,11 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    browserName: 'internet explorer'
+    browserName: 'internet explorer',
+    version: '11',
   },
   // directConnect: true,
-  SELENIUM_PROMISE_MANAGER: false,
+  SELENIUM_PROMISE_MANAGER: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
