@@ -17,7 +17,7 @@ jobs:
         run: npm install
 
       - name: webdriver update
-        run: ./node_modules/protractor/bin/webdriver-manager update --ie
+        run: npm run webdriver-manager:update
 
       - name: npm run e2e
         run: npm run e2e
