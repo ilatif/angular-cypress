@@ -15,7 +15,7 @@ exports.config = {
   capabilities: {
     browserName: 'internet explorer'
   },
-  directConnect: true,
+  // directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
