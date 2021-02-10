@@ -1,15 +1,30 @@
 name: Cypress e2e
 on: [push]
 jobs:
-  cypress-run:
+  cypress-run-chrome:
     runs-on: ubuntu-16.04
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Cypress run
+      - name: Cypress run on Chrome
         uses: cypress-io/github-action@v2
         with:
           start: npm start
           wait-on: http://localhost:4200
           browser: chrome
+  cypress-run-firefox:
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node12.16.1-chrome80-ff73
+      options: --user 1001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Cypress run on Firefox
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          wait-on: http://localhost:4200
+          browser: firefox
+
 
