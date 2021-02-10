@@ -1,41 +1,61 @@
 name: Cypress e2e
 on: [push]
+
 jobs:
-  cypress-run-chrome:
-    runs-on: ubuntu-16.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Cypress run on Chrome
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm start
-          wait-on: http://localhost:4200
-          browser: chrome
-  cypress-run-firefox:
-    needs: cypress-run-chrome
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node12.18.3-chrome87-ff82
-      options: --user 1001
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Cypress run on Firefox
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm start
-          wait-on: http://localhost:4200
-          browser: firefox
-  cypress-run-edge:
-    needs: cypress-run-firefox
+  protractor-e2e:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-      - name: Cypress run on Edge
-        uses: cypress-io/github-action@v2
+        uses: actions/checkout@v2
+      
+      - name: Setup node
+        uses: actions/setup-node@v1
         with:
-          start: npm start
-          wait-on: http://localhost:4200
-          browser: edge
+          node-version: '12'
+
+      - name: npm install
+        run: npm install
+
+      - name: npm run e2e
+        run: npm run e2e
+      
+
+# jobs:
+#   cypress-run-chrome:
+#     runs-on: ubuntu-16.04
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v1
+#       - name: Cypress run on Chrome
+#         uses: cypress-io/github-action@v2
+#         with:
+#           start: npm start
+#           wait-on: http://localhost:4200
+#           browser: chrome
+#   cypress-run-firefox:
+#     needs: cypress-run-chrome
+#     runs-on: ubuntu-latest
+#     container:
+#       image: cypress/browsers:node12.18.3-chrome87-ff82
+#       options: --user 1001
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v1
+#       - name: Cypress run on Firefox
+#         uses: cypress-io/github-action@v2
+#         with:
+#           start: npm start
+#           wait-on: http://localhost:4200
+#           browser: firefox
+#   cypress-run-edge:
+#     needs: cypress-run-firefox
+#     runs-on: windows-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v1
+#       - name: Cypress run on Edge
+#         uses: cypress-io/github-action@v2
+#         with:
+#           start: npm start
+#           wait-on: http://localhost:4200
+#           browser: edge
