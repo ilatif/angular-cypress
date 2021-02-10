@@ -16,7 +16,7 @@ jobs:
     needs: cypress-run-chrome
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node12.16.1-chrome80-ff73
+      image: cypress/browsers:node12.18.3-chrome87-ff82
       options: --user 1001
     steps:
       - name: Checkout
