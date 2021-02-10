@@ -24,6 +24,9 @@ exports.config = {
     defaultTimeoutInterval: 30000,
     print: function() {}
   },
+  localSeleniumStandaloneOpts: {
+    jvmArgs: ["-Dwebdriver.ie.driver=node_modules/protractor/node_modules/webdriver-manager/selenium/IEDriverServer3.150.1.exe"]
+  },
   onPrepare() {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
