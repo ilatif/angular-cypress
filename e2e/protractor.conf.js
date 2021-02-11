@@ -12,10 +12,13 @@ exports.config = {
   specs: [
     './src/**/*.e2e-spec.ts'
   ],
-  capabilities: {
-    browserName: 'internet explorer',
-    version: '11',
-  },
+  multiCapabilities: [
+    {
+      browserName: 'internet explorer',
+      platform: 'ANY',
+      version: '11'
+    }
+  ],
   // directConnect: true,
   SELENIUM_PROMISE_MANAGER: true,
   baseUrl: 'https://betteroffcalculator.co.uk/',
@@ -26,8 +29,9 @@ exports.config = {
     print: function() {}
   },
   localSeleniumStandaloneOpts: {
-    jvmArgs: ["-Dwebdriver.ie.driver='../node_modules/protractor/node_modules/webdriver-manager/selenium/IEDriverServer3.150.1.exe'"]
+    jvmArgs: ["-Dwebdriver.ie.driver=node_modules//protractor//node_modules//webdriver-manager//selenium/IEDriverServer3.150.1.exe'"]
   },
+  'autoStartStopServer': true,
   onPrepare() {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
