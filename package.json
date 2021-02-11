@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cypress-e2e": "node ./node_modules/cypress/bin/cypress run",
-    "webdriver-manager:update": "node ./node_modules/protractor/bin/webdriver-manager update --ie"
+    "webdriver-manager:update": "node ./node_modules/protractor/bin/webdriver-manager update --ie",
+    "webdriver-manager:start": "node ./node_modules/protractor/bin/webdriver-manager start --ie"
   },
   "private": true,
   "dependencies": {

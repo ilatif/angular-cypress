@@ -19,6 +19,9 @@ jobs:
       - name: webdriver update
         run: npm run webdriver-manager:update
 
+      - name: webdriver start
+        run: npm run webdriver-manager:start
+
       - name: npm run e2e
         run: npm run e2e
       
