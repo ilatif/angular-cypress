@@ -18,7 +18,7 @@ exports.config = {
   },
   // directConnect: true,
   SELENIUM_PROMISE_MANAGER: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'https://betteroffcalculator.co.uk/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
