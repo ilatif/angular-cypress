@@ -28,9 +28,11 @@ exports.config = {
     defaultTimeoutInterval: 30000,
     print: function() {}
   },
-  localSeleniumStandaloneOpts: {
-    jvmArgs: ["-Dwebdriver.ie.driver=node_modules//protractor//node_modules//webdriver-manager//selenium/IEDriverServer3.150.1.exe'"]
-  },
+  browserstackUser: 'policyinpractice1',
+  browserstackKey: 'KPp7w5s9Ph7pSLNy2Zje',
+  // localSeleniumStandaloneOpts: {
+  //   jvmArgs: ["-Dwebdriver.ie.driver=node_modules//protractor//node_modules//webdriver-manager//selenium/IEDriverServer3.150.1.exe'"]
+  // },
   'autoStartStopServer': true,
   onPrepare() {
     require('ts-node').register({
