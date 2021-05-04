@@ -7,6 +7,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+    
+      - name: Npm Install
+        run: npm install
+
       - name: Cypress run on Chrome
         uses: cypress-io/github-action@v2
         with:
