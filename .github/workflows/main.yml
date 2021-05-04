@@ -14,7 +14,7 @@ jobs:
           wait-on: http://localhost:4200
           browser: chrome
           record: false
-          
+          install: false
 
 # jobs:
 #   cypress-run-chrome:
