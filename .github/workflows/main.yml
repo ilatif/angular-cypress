@@ -39,7 +39,7 @@ jobs:
           install: false
 
       - name: Cypress run on Firefox
-          uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v2
           with:
           start: npm start
           wait-on: http://localhost:4200
