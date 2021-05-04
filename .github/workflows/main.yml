@@ -17,14 +17,15 @@ jobs:
         uses: actions/cache@v2
         id: cache
         with:
-          path: ./node_modules
+          path: |
+            ./node_modules
+            ~/.cache/Cypress
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
     
       - name: Npm Install
-        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Cypress run on Chrome
@@ -35,7 +36,6 @@ jobs:
           browser: chrome
           record: false
           install: false
-          CYPRESS_CACHE_FOLDER: ./node_modules/cypress/bin
 
 
 # jobs:
