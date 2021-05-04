@@ -35,7 +35,7 @@ jobs:
           browser: chrome
           record: false
           install: false
-          command: npm run cypress-e2e
+          CYPRESS_CACHE_FOLDER: ./node_modules/cypress/bin
 
 
 # jobs:
