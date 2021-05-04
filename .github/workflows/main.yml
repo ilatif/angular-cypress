@@ -2,26 +2,17 @@ name: Cypress e2e
 on: [push]
 
 jobs:
-  protractor-e2e:
-    runs-on: windows-latest
+  cypress-run-chrome:
+    runs-on: ubuntu-16.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v1
+      - name: Cypress run on Chrome
+        uses: cypress-io/github-action@v2
         with:
-          node-version: '12'
-
-      - name: npm install
-        run: npm install
-
-      - name: webdriver update
-        run: npm run webdriver-manager:update
-
-      - name: npm run e2e
-        run: npm run e2e
-      
+          start: npm start
+          wait-on: http://localhost:4200
+          browser: chrome
 
 # jobs:
 #   cypress-run-chrome:
