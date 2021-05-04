@@ -26,6 +26,7 @@ jobs:
 
     
       - name: Npm Install
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Cypress run on Chrome
