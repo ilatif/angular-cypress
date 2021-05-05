@@ -68,7 +68,7 @@ jobs:
         id: cache-windows
         with:
           path: |
-            {{  steps.npm-cache.outputs.dir }}
+            ${{ steps.npm-cache.outputs.dir }}
             C:\Users\runneradmin\AppData\Local\Cypress\Cache
           key: ${{ runner.os }}-node-windows-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
