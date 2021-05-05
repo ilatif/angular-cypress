@@ -2,7 +2,7 @@ name: Cypress e2e
 on: [push]
 
 jobs:
-  cypress-run-chrome:
+  cypress-run-ubuntu:
     runs-on: ubuntu-16.04
     steps:
       - name: Checkout
@@ -44,6 +44,45 @@ jobs:
           start: npm start
           wait-on: http://localhost:4200
           browser: firefox
+          install: false
+
+  cypress-run-windows:
+    runs-on: windows-latest
+    needs: cypress-run-ubuntu
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+
+      - name: Npm install
+        run: npm install
+
+      - name: Cypress run on Chrome
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          wait-on: http://localhost:4200
+          browser: chrome
+          install: false
+
+      - name: Cypress run on Firefox
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          wait-on: http://localhost:4200
+          browser: firefox
+          install: false
+
+      - name: Cypress run on Edge
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          wait-on: http://localhost:4200
+          browser: edge
           install: false
 
 
