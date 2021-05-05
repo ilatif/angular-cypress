@@ -80,8 +80,8 @@ jobs:
           wait-on: http://localhost:4200
           browser: chrome
           install: false
-          env:
-            CYPRESS_CACHE_FOLDER: C:\Users\runneradmin\AppData\Local\Cypress\Cache
+        env:
+          CYPRESS_CACHE_FOLDER: C:\Users\runneradmin\AppData\Local\Cypress\Cache
 
       - name: Cypress run on Firefox
         uses: cypress-io/github-action@v2
@@ -90,8 +90,8 @@ jobs:
           wait-on: http://localhost:4200
           browser: firefox
           install: false
-          env:
-            CYPRESS_CACHE_FOLDER: C:\Users\runneradmin\AppData\Local\Cypress\Cache
+        env:
+          CYPRESS_CACHE_FOLDER: C:\Users\runneradmin\AppData\Local\Cypress\Cache
 
       - name: Cypress run on Edge
         uses: cypress-io/github-action@v2
@@ -100,8 +100,8 @@ jobs:
           wait-on: http://localhost:4200
           browser: edge
           install: false
-          env:
-            CYPRESS_CACHE_FOLDER: C:\Users\runneradmin\AppData\Local\Cypress\Cache
+        env:
+          CYPRESS_CACHE_FOLDER: C:\Users\runneradmin\AppData\Local\Cypress\Cache
 
 
 # jobs:
