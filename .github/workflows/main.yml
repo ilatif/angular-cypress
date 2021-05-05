@@ -58,12 +58,17 @@ jobs:
         with:
           node-version: '12'
 
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
       - name: Npm cache
         uses: actions/cache@v2
         id: cache-windows
         with:
           path: |
-            C:\Users\runneradmin\AppData\npm-cache
+            {{  steps.npm-cache.outputs.dir }}
             C:\Users\runneradmin\AppData\Local\Cypress\Cache
           key: ${{ runner.os }}-node-windows-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
