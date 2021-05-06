@@ -81,8 +81,7 @@ jobs:
       - name: Cypress run on Chrome
         uses: cypress-io/github-action@v2
         with:
-          start: npm start
-          wait-on: http://localhost:4200
+          config: baseUrl="https://betteroffcalculator.co.uk"
           browser: chrome
           install: false
         env:
