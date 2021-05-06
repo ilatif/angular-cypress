@@ -80,6 +80,7 @@ jobs:
 
       - name: Cypress run on Chrome
         uses: cypress-io/github-action@v2
+        if: always()
         with:
           config: baseUrl="https://betteroffcalculator.co.uk"
           browser: chrome
@@ -89,6 +90,7 @@ jobs:
 
       - name: Cypress run on Firefox
         uses: cypress-io/github-action@v2
+        if: always()
         with:
           start: npm start
           wait-on: http://localhost:4200
@@ -99,6 +101,7 @@ jobs:
 
       - name: Cypress run on Edge
         uses: cypress-io/github-action@v2
+        if: always()
         with:
           start: npm start
           wait-on: http://localhost:4200
