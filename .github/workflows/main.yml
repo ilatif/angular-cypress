@@ -50,10 +50,6 @@ jobs:
     runs-on: windows-latest
     # needs: cypress-run-ubuntu
     steps:
-      - name: Get current username
-        id: username
-        run: echo "::set-output name=username::$(echo $env:username)"
-
       - name: Checkout
         uses: actions/checkout@v1
 
@@ -73,7 +69,7 @@ jobs:
         with:
           path: |
             ./node_modules
-            C:\Users\${{}}\AppData\Local\Cypress\Cache
+            C:\Users\${{ $env.username }}\AppData\Local\Cypress\Cache
           key: ${{ runner.os }}-node-windows-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-windows-
@@ -91,7 +87,7 @@ jobs:
           browser: chrome
           install: false
         env:
-          CYPRESS_CACHE_FOLDER: C:\Users\${{}}\AppData\Local\Cypress\Cache
+          CYPRESS_CACHE_FOLDER: C:\Users\${{ $env.username }}\AppData\Local\Cypress\Cache
 
       # - name: Cypress run on Firefox
       #   uses: cypress-io/github-action@v2
