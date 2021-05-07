@@ -73,7 +73,7 @@ jobs:
         with:
           path: |
             ./node_modules
-            C:\Users\imran\AppData\Local\Cypress\Cache
+            C:\Users\${{ steps.username.outputs.username }}\AppData\Local\Cypress\Cache
           key: ${{ runner.os }}-node-windows-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-windows-
@@ -91,7 +91,7 @@ jobs:
           browser: chrome
           install: false
         env:
-          CYPRESS_CACHE_FOLDER: C:\Users\imran\AppData\Local\Cypress\Cache
+          CYPRESS_CACHE_FOLDER: C:\Users\${{ steps.username.outputs.username }}\AppData\Local\Cypress\Cache
 
       # - name: Cypress run on Firefox
       #   uses: cypress-io/github-action@v2
