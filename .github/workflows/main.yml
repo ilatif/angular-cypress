@@ -86,23 +86,21 @@ jobs:
         uses: cypress-io/github-action@v2
         if: always()
         with:
-          start: npm start
-          wait-on: http://localhost:4200
+          config: baseUrl=https://staging.betteroffcalculator.co.uk/CALC3-1307
           browser: chrome
           install: false
         env:
           CYPRESS_CACHE_FOLDER: C:\Users\${{ steps.username.outputs.username }}\AppData\Local\Cypress\Cache
 
-      # - name: Cypress run on Firefox
-      #   uses: cypress-io/github-action@v2
-      #   if: always()
-      #   with:
-      #     start: npm start
-      #     wait-on: http://localhost:4200
-      #     browser: firefox
-      #     install: false
-      #   env:
-      #     CYPRESS_CACHE_FOLDER: C:\Users\runneradmin\AppData\Local\Cypress\Cache
+      - name: Cypress run on Firefox
+        uses: cypress-io/github-action@v2
+        if: always()
+        with:
+          config: baseUrl=https://staging.betteroffcalculator.co.uk/CALC3-1307
+          browser: firefox
+          install: false
+        env:
+          CYPRESS_CACHE_FOLDER: C:\Users\runneradmin\AppData\Local\Cypress\Cache
 
       # - name: Cypress run on Edge
       #   uses: cypress-io/github-action@v2
