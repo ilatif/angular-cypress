@@ -1,14 +1,12 @@
 describe('login tests', () => {
 
   beforeEach(() => {
-    cy.visit('/');
-  });
-
-  afterEach(() => {
     cy.getCookies({ log: false }).then((cookies) => {
       cookies.forEach((cookie) => cy.clearCookie(cookie.name, { log: false }));
     });
     cy.log('clearCookies');
+
+    cy.visit('/');
   });
 
   it('redirects to /login when user is not logged-in', () => {
