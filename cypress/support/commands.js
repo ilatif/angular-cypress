@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('clearCookiesCustom', () => {
+  if (Cypress.isBrowser('firefox')) {
+    cy.getCookies({ log: false }).then((cookies) =>
+      cookies.forEach((cookie) => cy.clearCookie(cookie.name, { log: false })),
+    );
+    cy.log('clearCookies');
+  } else {
+    cy.clearCookies();
+  }
+});
